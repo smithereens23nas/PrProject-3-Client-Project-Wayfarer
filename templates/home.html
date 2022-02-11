@@ -1,0 +1,23 @@
+{% extends 'base.html' %} 
+{% block content %}
+<div class="home__country">
+    {% for country in countries %}
+
+        <div class="cities mb-5">
+            <h3 class="title is-3 has-text-success">{{county.name}}</h3>
+            <hr />
+
+            {% for city in Cities.all %}
+
+            <div class="song">
+                <span>{{forloop.counter}}</span>
+                <span><b>{{city.name}}</b></span>
+                <span>{{city.country}}</span>
+              
+              </div>
+
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
