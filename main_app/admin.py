@@ -1,8 +1,9 @@
 from django.contrib import admin
-from .models import User, City, Country
+from . import models
 
 # Register your models here.
-
-admin.site.register(User)
-admin.site.register(City)
-admin.site.register(Country)
+@admin.register(models.Country)
+class CountryAdmin(admin.ModelAdmin):
+    list_display = ['name', 'city', 'continent']
+    
+# admin.site.register(models.Country)
