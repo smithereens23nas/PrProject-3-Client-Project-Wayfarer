@@ -5,8 +5,10 @@ from . import models
 @admin.register(models.Country)
 class CountryAdmin(admin.ModelAdmin):
     list_display = ['name', 'img', 'continent']
+    ordering = ['name']
     
 # admin.site.register(models.Country)
 @admin.register(models.City)
 class CityAdmin(admin.ModelAdmin):
     list_display = ['name', 'img', 'description','country']
+    ordering = ['name']
