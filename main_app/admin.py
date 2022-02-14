@@ -5,5 +5,6 @@ from . import models
 @admin.register(models.Country)
 class CountryAdmin(admin.ModelAdmin):
     list_display = ['name', 'city', 'continent']
+    list_ordering = ['continent']
     
 # admin.site.register(models.Country)

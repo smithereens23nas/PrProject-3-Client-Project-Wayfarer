@@ -15,4 +15,5 @@ INSERT INTO main_app_country(name, image, city, continent)
 
 INSERT INTO main_app_country(name, image, city, continent)
     VALUES
-    ("Australia","https://cdn11.bigcommerce.com/s-plfev599h5/images/stencil/1280x1280/products/55544/168933/41MGRRitBpL__83715.1602574540.jpg?c=1",["Sydney", "Melburne", "Brisbane"],"Australia");
+    ("Australia","https://cdn11.bigcommerce.com/s-plfev599h5/images/stencil/1280x1280/products/55544/168933/41MGRRitBpL__83715.1602574540.jpg?c=1",("Sydney", "Melburne", "Brisbane"),"Australia");
+
