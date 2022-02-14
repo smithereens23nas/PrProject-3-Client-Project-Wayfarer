@@ -1,21 +1,21 @@
-INSERT INTO main_app_country(name, image, city  continent)
+INSERT INTO main_app_country(name, image, continent)
     VALUES
-    ("United States","https://www.kindpng.com/picc/m/61-611171_us-flag-shape-of-country-hd-png-download.png",["Miami", "Los Angles", "New York"],"North America"));
+    ("United States","https://www.kindpng.com/picc/m/61-611171_us-flag-shape-of-country-hd-png-download.png","North America");
 
-INSERT INTO main_app_country(name, image, city, continent)
+INSERT INTO main_app_country(name, image, continent)
     VALUES
-    ("Brazil","https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/brazil-flag-border-gift-country-pride-identity-fan-funny-gift-ideas.jpg",["Rio de Janiero", "Brazilla", "Sao Paulo"],"South America");
-INSERT INTO main_app_country(name, image, city, continent)
+    ("Brazil","https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/brazil-flag-border-gift-country-pride-identity-fan-funny-gift-ideas.jpg","South America");
+INSERT INTO main_app_country(name, image, continent)
     VALUES
-    ("Italy","https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/italy-flag-in-country-silhouette-peter-hermes-furian.jpg",["Rome", "Florence", "Venice"],"Europe");
+    ("Italy","https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/italy-flag-in-country-silhouette-peter-hermes-furian.jpg","Europe");
 
-INSERT INTO main_app_country(name, image, city, continent)
+INSERT INTO main_app_country(name, image, continent)
     VALUES
-    ("Japan","https://ih1.redbubble.net/image.903835950.0919/st,small,845x845-pad,1000x1000,f8f8f8.jpg",["Tokyo","Kyoto","Osaka"],"Asia"));
+    ("Japan","https://ih1.redbubble.net/image.903835950.0919/st,small,845x845-pad,1000x1000,f8f8f8.jpg","Asia");
 
-INSERT INTO main_app_country(name, image, city, continent)
+INSERT INTO main_app_country(name, image, continent)
     VALUES
-    ("Australia","https://cdn11.bigcommerce.com/s-plfev599h5/images/stencil/1280x1280/products/55544/168933/41MGRRitBpL__83715.1602574540.jpg?c=1",["Sydney", "Melburne", "Brisbane"],"Australia");
+    ("Australia","https://cdn11.bigcommerce.com/s-plfev599h5/images/stencil/1280x1280/products/55544/168933/41MGRRitBpL__83715.1602574540.jpg?c=1","Australia");
 INSERT INTO main_app_city(name, image, description, country)
     VALUES("Miami","https://mmimageservice.azurewebsites.net/api/image/office/039","Miami, officially the City of Miami, is a coastal metropolis located in Miami-Dade County in southeastern Florida. With a population of 467,963 as of the 2020 census, it is the 44th-largest city in the United States and the core of the nation's eighth-largest metropolitan area.","United States")
 INSERT INTO main_app_city(name, image, description, country)
