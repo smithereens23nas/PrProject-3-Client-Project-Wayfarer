@@ -49,3 +49,13 @@ class CountryDelete(DeleteView):
     model = Country
     template_name = 'country_delete_confirmation.html'
     success_url = '/countries/'
+
+
+class CityCreate(View):
+    def post(self, request, pk):
+        name = request.POST.get('name')
+        img = request.POST.get('img')
+        description = request.POST.get('description')
+        country = Country.objects.get(pk=pk)
+        City.objects.create(name=name, img=img, description=description, country=country)
+        return redirect('country_detail', pk=pk)
