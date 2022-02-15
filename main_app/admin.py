@@ -8,7 +8,7 @@ class Post(admin.ModelAdmin):
 
 @admin.register(models.Profile)
 class Profile(admin.Profile):
-    list_display = ['user_name','current_city','profile_picture']
+    list_display = ['user_name', 'email', 'current_city','profile_picture']
 
 @admin.register(models.Country)
 class CountryAdmin(admin.ModelAdmin):

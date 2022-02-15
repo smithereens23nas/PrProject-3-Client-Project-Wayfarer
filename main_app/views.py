@@ -29,10 +29,22 @@ class Signup(View):
             context = {"form": form}
             return render(request, "registration/signup.html", context)
         
-class Logout(TemplateView):
+class Profile(View):
     def get(self, request):
-        return render( request, 'logout_confirmation.html')
+        form = UserCreationForm()
+        context = {"form": form}
+        return render(request, "profile.html")
     
+    def post(self, request):
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect("home.html")
+        else:
+            context = {"form": form}
+            return render(request, "profile.html", context)
+        
 
 class CountryList(TemplateView):
     template_name = 'country_list.html'
