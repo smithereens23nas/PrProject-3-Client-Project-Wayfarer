@@ -4,10 +4,15 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Post(models.Model):
-    city =models.CharField(max_length=30)
+    current_city =models.CharField(max_length=30)
     title =models.CharField(max_length=100)
     img = models.TextField(max_length=500, blank =True)
     description = models.TextField(max_length=300)
+
+class Profile(models.Model):
+    user_name =models.CharField(max_length=50)
+    current_city = models.CharField(max_length=50)
+    profile_picture =models.TextField(max_length=500, default ='https://i.pinimg.com/736x/cb/45/72/cb4572f19ab7505d552206ed5dfb3739.jpg')
 
 class Country(models.Model):
     name = models.CharField(max_length=30)
