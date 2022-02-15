@@ -5,11 +5,18 @@ from django.views.generic import DetailView
 from django.http import HttpResponse
 from django.urls import reverse
 from .models import Country, City
+from django.contrib.auth.forms import UserCreationForm
 # Create your views here.
 
 class Home(TemplateView):
     def get(self, request):
         return HttpResponse('homepage')
+    
+class Signup(View):
+    def get(self, request):
+        form = UserCreationForm()
+        context = {"form": form}
+        return render(request, "registration/signup.html")
 
 class CountryList(TemplateView):
     template_name = 'country_list.html'
