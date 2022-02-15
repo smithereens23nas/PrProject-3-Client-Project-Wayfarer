@@ -3,6 +3,12 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
+class Post(models.Model):
+    city =models.CharField(max_length=30)
+    title =models.CharField(max_length=100)
+    img = models.TextField(max_length=500, blank =True)
+    description = models.TextField(max_length=300)
+
 class Country(models.Model):
     name = models.CharField(max_length=30)
     img = models.CharField(max_length=500)
@@ -19,6 +25,12 @@ class City(models.Model):
     img = models.CharField(max_length=500)
     description = models.TextField(max_length=500)
     country = models.ForeignKey(Country, on_delete=models.CASCADE, related_name='cities')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ['name']
 
 class ExtendedUsers(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
