@@ -6,6 +6,10 @@ from . import models
 class Post(admin.ModelAdmin):
     list_display = [ 'city', 'title', 'img','description']
 
+@admin.register(models.Profile)
+class Profile(admin.Profile):
+    list_display = ['user_name','current_city','profile_picture']
+
 @admin.register(models.Country)
 class CountryAdmin(admin.ModelAdmin):
     list_display = ['name', 'img', 'continent']
