@@ -5,6 +5,7 @@ from django.views.generic import DetailView
 from django.http import HttpResponse
 from django.urls import reverse
 from .models import Country, City
+from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 # Create your views here.
 
@@ -23,14 +24,14 @@ class Signup(View):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect("artist_list")
+            return redirect("country_list")
         else:
             context = {"form": form}
             return render(request, "registration/signup.html", context)
         
 class Logout(TemplateView):
-    template_name = 'logout_confirmation.html'
-    success_url = "/home/"
+    def get(self, request):
+        return render( request, 'logout_confirmation.html')
     
 
 class CountryList(TemplateView):
