@@ -10,13 +10,28 @@ from django.contrib.auth.forms import UserCreationForm
 
 class Home(TemplateView):
     def get(self, request):
-        return HttpResponse('homepage')
+        return render( request, 'home.html')
     
 class Signup(View):
     def get(self, request):
         form = UserCreationForm()
         context = {"form": form}
         return render(request, "registration/signup.html")
+    
+    def post(self, request):
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect("artist_list")
+        else:
+            context = {"form": form}
+            return render(request, "registration/signup.html", context)
+        
+class Logout(TemplateView):
+    template_name = 'logout_confirmation.html'
+    success_url = "/home/"
+    
 
 class CountryList(TemplateView):
     template_name = 'country_list.html'

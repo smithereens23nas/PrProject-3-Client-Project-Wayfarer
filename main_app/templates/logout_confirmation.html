@@ -1,0 +1,14 @@
+{% extends 'base.html' %} 
+{% block title %}- Logout {% endblock %}
+{% block content %}
+<h1 class="title pt-5">Are you sure you want to logout, {{ user.username }}?</h1>
+<form method="post">
+    {% csrf_token %}
+    <div class="buttons">
+    <!-- confirm artist delete -->
+        <input class="button is-danger" href="{% url 'home' %}" type="submit" value="Confirm" />
+        <!-- Redirect back to detail on cancel -->
+        <a class="button is-primary" href="{% url 'home' %}">Cancel</a>
+    </div>
+</form>
+{% endblock %}
