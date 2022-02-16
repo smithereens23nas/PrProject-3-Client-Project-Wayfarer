@@ -3,17 +3,20 @@ from re import template
 from django.shortcuts import render, redirect
 from django.views.generic.base import View, TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.views.generic import DetailView
+from django.views.generic import DetailView, ListView, CreateView
 from django.urls import reverse, reverse_lazy
-from .models import Country, City, Profile
+from .models import Country, City, Profile, Post
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from .forms import SignUpForm
 # Create your views here.
 
-class Home(TemplateView):
-    def get(self, request):
-        return render( request, 'home.html')
+class Home(ListView):
+    model = Post
+    template_name = 'profile_detail.html'
+# class Home(TemplateView):
+#     def get(self, request):
+#         return render( request, 'home.html')
     
 # class Signup(View):
 #     def get(self, request):
@@ -30,6 +33,11 @@ class Home(TemplateView):
 #         else:
 #             context = {"form": form}
 #             return render(request, "registration/signup.html", context)
+
+class AddPostView(CreateView):
+    model = Post
+    template_name = 'addPost.html'
+    fields = '__all__'
         
 class ProfileCreate(CreateView):
     form_class = SignUpForm
