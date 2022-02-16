@@ -76,6 +76,57 @@ img {
 .detail__container {
     margin-top: 500px;
 }
+.hero-container{
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 600px;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+.hero_image {
+    left: 0;
+    top: 0; 
+    width: 100%;
+    height: 600px;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+.hero-image {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hero-text {
+    text-justify: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+.title_text {
+    
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.hero-text button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 10px 25px;
+    color: black;
+    background-color: #ddd;
+    text-align: center;
+    cursor: pointer;
+}
+
 
 /* .detail__songs {
     width: 100%;

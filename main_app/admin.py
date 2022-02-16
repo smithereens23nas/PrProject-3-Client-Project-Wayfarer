@@ -3,11 +3,11 @@ from . import models
 
 # Register your models here.
 @admin.register(models.Post)
-class Post(admin.ModelAdmin):
-    list_display = [ 'city', 'title', 'img','description']
+class PostAdmin(admin.ModelAdmin):
+    list_display = [ 'current_city', 'title', 'img','description']
 
 @admin.register(models.Profile)
-class Profile(admin.Profile):
+class ProfileAdmin(admin.ModelAdmin):
     list_display = ['user_name','current_city','profile_picture']
 
 @admin.register(models.Country)
