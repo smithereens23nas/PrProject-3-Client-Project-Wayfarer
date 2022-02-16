@@ -99,7 +99,15 @@ class CountryList(TemplateView):
 #     model = Country
 #     template_name = 'country_delete_confirmation.html'
 #     success_url = '/countries/'
-
+class PostCreate(View):
+    def post(self, request, pk):
+        current_city = request.POST.get('current_city')
+        title = request.POST.get('title')
+        img = request.POST.get('img')
+        body = request.POST.get('body')
+        profile = Profile.objects.get(pk=pk)
+        Post.objects.create(current_city=current_city, title=title, img=img, body=body, profile=profile)
+        return redirect('profile_detail')
 
 class CityCreate(View):
     def post(self, request, pk):
