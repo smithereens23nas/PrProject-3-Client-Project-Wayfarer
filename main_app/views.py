@@ -47,6 +47,11 @@ class ProfileEdit(UpdateView):
     
     def get_object(self):
         return self.request.user
+
+
+class ProfileDetail(DetailView):
+    model = Profile
+    template_name = 'profile_detail.html'
     
 class CountryList(TemplateView):
     template_name = 'country_list.html'
