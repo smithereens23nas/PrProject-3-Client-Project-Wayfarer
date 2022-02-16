@@ -14,6 +14,7 @@ class Profile(models.Model):
     email = models.CharField(max_length=300, unique=True)
     current_city = models.CharField(max_length=50)
     profile_picture =models.TextField(max_length=500, default ='https://i.pinimg.com/736x/cb/45/72/cb4572f19ab7505d552206ed5dfb3739.jpg')
+
 class Country(models.Model):
     name = models.CharField(max_length=30)
     img = models.CharField(max_length=500)

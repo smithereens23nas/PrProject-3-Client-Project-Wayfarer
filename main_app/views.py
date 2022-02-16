@@ -1,51 +1,53 @@
+from dataclasses import fields
+from re import template
 from django.shortcuts import render, redirect
 from django.views.generic.base import View, TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
-from django.http import HttpResponse
-from django.urls import reverse
-from .models import Country, City
+from django.urls import reverse, reverse_lazy
+from .models import Country, City, Profile
 from django.contrib.auth import login
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from .forms import SignUpForm
 # Create your views here.
 
 class Home(TemplateView):
     def get(self, request):
         return render( request, 'home.html')
     
-class Signup(View):
-    def get(self, request):
-        form = UserCreationForm()
-        context = {"form": form}
-        return render(request, "registration/signup.html")
+# class Signup(View):
+#     def get(self, request):
+#         form = UserCreationForm()
+#         context = {"form": form}
+#         return render(request, "registration/signup.html")
     
-    def post(self, request):
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            login(request, user)
-            return redirect("country_list")
-        else:
-            context = {"form": form}
-            return render(request, "registration/signup.html", context)
+#     def post(self, request):
+#         form = UserCreationForm(request.POST)
+#         if form.is_valid():
+#             user = form.save()
+#             login(request, user)
+#             return redirect("country_list")
+#         else:
+#             context = {"form": form}
+#             return render(request, "registration/signup.html", context)
         
-class Profile(View):
-    def get(self, request):
-        form = UserCreationForm()
-        context = {"form": form}
-        return render(request, "profile.html")
-    
-    def post(self, request):
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            login(request, user)
-            return redirect("home.html")
-        else:
-            context = {"form": form}
-            return render(request, "profile.html", context)
-        
+class ProfileCreate(CreateView):
+    form_class = SignUpForm
+    model = Profile
+    fields = ['user_name', 'email', 'current_city', 'profile_picture']
+    template_name = 'registration/profile_create.html'
+    success_url = reverse_lazy('login')
 
+class ProfileEdit(UpdateView):
+    form_class = UserChangeForm
+    model = Profile
+    fields = ['user_name', 'email', 'current_city', 'profile_picture']
+    template_name = 'registration/update_profile.html'
+    success_url = reverse_lazy('home')
+    
+    def get_object(self):
+        return self.request.user
+    
 class CountryList(TemplateView):
     template_name = 'country_list.html'
     def get_context_data(self, **kwargs):
