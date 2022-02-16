@@ -1,17 +1,17 @@
 body {
     background-color: #121212;
-    color: #ffffff;
+    color: #000000;
     min-height: 100vh;
 }
 
 h1,
 h2,
 h3 {
-    color: #ffffff;
+    color: #000000;
 }
 
 .container {
-    padding: 40px;
+    /* padding: 40px; */
     padding-right: 0;
 }
 
@@ -76,82 +76,41 @@ img {
 .detail__container {
     margin-top: 500px;
 }
-.hero-container{
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 600px;
-    background-color: #ffffff;
-    overflow: hidden;
-}
-.hero_image {
-    left: 0;
-    top: 0; 
-    width: 100%;
-    height: 600px;
-    background-color: #ffffff;
-    overflow: hidden;
-}
-.hero-image {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+* {
+    margin: 0;
+    padding: 0;
 }
 
+.hero-container {
+    width: 100%;
+    height: 100vh;
+    max-width: 100%;
+    background: center / cover no-repeat url("https://cdn.cnn.com/cnnnext/dam/assets/220210192331-20-europe-new-train-routes-2022-full-169.jpg");
+    position: relative;
+}
 .hero-text {
-    text-justify: center;
+    z-index: 1;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-}
-.title_text {
-    
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-}
-
-.hero-text button {
-    border: none;
-    outline: 0;
-    display: inline-block;
-    padding: 10px 25px;
-    color: black;
-    background-color: #ddd;
-    text-align: center;
-    cursor: pointer;
-}
-
-
-/* .detail__songs {
-    width: 100%;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 1200px;
+    height: 500px;
 }
 
-.song {
+.hero-link {
+    text-decoration: underline;
+    text-transform: capitalize;
+    font-size: 50px;
+    color: #ffffff;
+}
+
+.overlay {
+    background: #000;
     width: 100%;
-    padding: 10px;
-    display: grid;
-    grid-template-columns: 0.1fr 3fr 1fr;
-    border-radius: 5px;
+    height: 100%;
+    opacity: 0.7;
+    position: absolute;
+    top: 0;
 }
 
-.song:hover {
-    background-color: hsla(0, 0%, 100%, 0.1);
-    cursor: pointer;
-}
-
-.song {
-    width: 100%;
-    padding: 10px;
-    display: grid;
-    /*  New Template Columns  */
-    grid-template-columns: 0.1fr 3fr 0.5fr 0.3fr;
-    border-radius: 5px;
-} */
