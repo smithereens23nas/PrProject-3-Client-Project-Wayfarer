@@ -11,6 +11,7 @@ class Post(models.Model):
 
 class Profile(models.Model):
     user_name =models.CharField(max_length=50)
+    email = models.CharField(max_length=300, unique=True)
     current_city = models.CharField(max_length=50)
     profile_picture =models.TextField(max_length=500, default ='https://i.pinimg.com/736x/cb/45/72/cb4572f19ab7505d552206ed5dfb3739.jpg')
 

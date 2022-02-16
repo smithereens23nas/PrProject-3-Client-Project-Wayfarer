@@ -1,12 +1,13 @@
 from django.urls import path
 from . import views
+from .views import ProfileCreate, ProfileEdit
 
 urlpatterns = [
-    path('home/', views.Home.as_view(), name="home"),
-    path('accounts/signup/', views.Signup.as_view(), name="signup"),
-    path('logout/', views.Logout.as_view(), name="signup"),
-    
+    path('', views.Home.as_view(), name="home"),
+    path('signup/', ProfileCreate.as_view(), name="signup"),
+    path('edit/profile/', ProfileEdit.as_view(), name="profile_edit"),
     path('countries/', views.CountryList.as_view(), name='country_list'),
+    path('profile/', views.Profile.as_view(), name='update_profile'),
     path('countries/new', views.CountryCreate.as_view(), name='country_create'),
     path('countries/<int:pk>/', views.CountryDetail.as_view(), name='country_detail'),
     path('countries/<int:pk>/update', views.CountryUpdate.as_view(), name='country_update'),
