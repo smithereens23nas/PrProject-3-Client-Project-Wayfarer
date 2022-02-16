@@ -1,14 +1,14 @@
 from django.urls import path
 from . import views
-from .views import ProfileCreate, ProfileEdit, AddPostView
+from .views import PostCreate, ProfileCreate, ProfileEdit, AddPostView
 
 urlpatterns = [
     path('', views.Home.as_view(), name="home"),
     path('signup/', ProfileCreate.as_view(), name="signup"),
-    path('edit/profile/', ProfileEdit.as_view(), name="profile_edit"),
+    path('profile/edit', ProfileEdit.as_view(), name="profile_edit"),
     path('countries/', views.CountryList.as_view(), name='country_list'),
-    path('profile/', views.Profile.as_view(), name='update_profile'),
-    path('add_post/', AddPostView.as_view(), name='add_post'),
+    path('profile/', views.ProfileDetail.as_view(), name='profile_detail'),
+    path('add_post/', PostCreate.as_view(), name='add_post'),
     
     # path('countries/new', views.CountryCreate.as_view(), name='country_create'),
     # path('countries/<int:pk>/', views.CountryDetail.as_view(), name='country_detail'),

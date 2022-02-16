@@ -5,20 +5,15 @@ from . import models
 @admin.register(models.Post)
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = [ 'current_city', 'title', 'img','description']
+    list_display = ['title', 'img','body', 'city', 'author']
 
 @admin.register(models.Profile)
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ['user_name','current_city','profile_picture']
+    list_display = ['user_name','email','profile_picture', 'city']
 
-
-@admin.register(models.Country)
-class CountryAdmin(admin.ModelAdmin):
-    list_display = ['name', 'img', 'continent']
-    ordering = ['name']
     
 # admin.site.register(models.Country)
 @admin.register(models.City)
 class CityAdmin(admin.ModelAdmin):
-    list_display = ['name', 'img', 'description','country']
+    list_display = ['name', 'img', 'description']
     ordering = ['name']

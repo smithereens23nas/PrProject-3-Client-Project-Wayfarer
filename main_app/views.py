@@ -8,12 +8,12 @@ from django.urls import reverse, reverse_lazy
 from .models import Country, City, Profile, Post
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from .forms import SignUpForm
+# from .forms import SignUpForm
 # Create your views here.
 
 class Home(ListView):
     model = Post
-    template_name = 'profile_detail.html'
+    template_name = 'registration/profile_detail.html'
 # class Home(TemplateView):
 #     def get(self, request):
 #         return render( request, 'home.html')
@@ -40,7 +40,7 @@ class AddPostView(CreateView):
     fields = '__all__'
         
 class ProfileCreate(CreateView):
-    form_class = SignUpForm
+    form = UserCreationForm
     model = Profile
     fields = ['user_name', 'email', 'current_city', 'profile_picture']
     template_name = 'registration/profile_create.html'

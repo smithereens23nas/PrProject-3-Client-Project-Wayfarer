@@ -1,21 +1,39 @@
 from audioop import reverse
 from email.mime import image
+from email.policy import default
 from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
 
+
+class City(models.Model):
+    name = models.CharField(max_length=30)
+    img = models.CharField(max_length=500)
+    description = models.TextField(max_length=500)
+    
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ['name']
+
+    
+
+    def __str__(self):
+        return self.name
+    
 class Profile(models.Model):
     user_name = models.CharField(max_length=50)
-    email = models.CharField(max_length=300, unique=True)
-    current_city = models.CharField(max_length=50)
+    email = models.CharField(max_length=300, unique=True, default='email@email.com')
     profile_picture =models.TextField(max_length=500, default ='https://i.pinimg.com/736x/cb/45/72/cb4572f19ab7505d552206ed5dfb3739.jpg')
+    city = models.ForeignKey(City, on_delete=models.CASCADE, related_name="city", default='1')
 
 class Post(models.Model):
-    current_city =models.CharField(max_length=30)
     title =models.CharField(max_length=100)
-    img = models.TextField(max_length=500, blank =True)
-    body = models.TextField(max_length=300)
-    profile = models.ForeignKey(User, on_delete=models.CASCADE, related_name="posts")
+    img = models.TextField(max_length=300, blank=True)
+    body = models.TextField(max_length=500, default='this is the body')
+    city =models.ForeignKey(City, on_delete=models.CASCADE, related_name="city_posts", default='1')
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="posts", default='1')
     
     def __str__(self):
         return self.title + ' | ' + str(self.author)
@@ -27,21 +45,6 @@ class Country(models.Model):
     name = models.CharField(max_length=30)
     img = models.CharField(max_length=500)
     continent = models.TextField(max_length=30)
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        ordering = ['name']
-
-class City(models.Model):
-    name = models.CharField(max_length=30)
-    img = models.CharField(max_length=500)
-    description = models.TextField(max_length=500)
-    country = models.ForeignKey(Country, on_delete=models.CASCADE, related_name='cities')
-
-    def __str__(self):
-        return self.name
 
     class Meta:
         ordering = ['name']

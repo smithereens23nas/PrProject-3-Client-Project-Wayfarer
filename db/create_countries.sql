@@ -15,6 +15,11 @@ INSERT INTO main_app_country(name, img, continent)
 
 INSERT INTO main_app_country(name, img, continent)
     VALUES
+    ('No Country Found','No image','N/A');
+
+
+INSERT INTO main_app_country(name, img, continent)
+    VALUES
     ('Jamaica','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKp_JEcDMcA4MHfZ_AufJVXzquQ3r16XBNzw&usqp=CAU','North America');
 INSERT INTO main_app_city(name, img, description, country_id)
     VALUES('Miami','https://mmimageservice.azurewebsites.net/api/image/office/039','Miami, officially the City of Miami, is a coastal metropolis located in Miami-Dade County in southeastern Florida. With a population of 467,963 as of the 2020 census, it is the 44th-largest city in the United States and the core of the nation''s eighth-largest metropolitan area.','1');
@@ -46,3 +51,5 @@ INSERT INTO main_app_city(name, img, description, country_id)
     VALUES('Montego Bay','https://www.sunsetmontegobay.com/images/slides/slide-11.jpg','Montego Bay, the capital of Saint James Parish on Jamaica''s north coast, is a major cruise ship port with numerous beach resorts and golf courses outside its commercial core. Popular beaches include Doctor''s Cave Beach and Walter Fletcher Beach, home to an amusement park. There''s also snorkelling and diving at coral reefs in the protected waters of Montego Bay Marine Park.','5');
 INSERT INTO main_app_city(name, img, description, country_id)
     VALUES('Port Antonio','http://things-to-do-in-jamaica.com/wp-content/uploads/2018/06/frenchmans_cove_portland_jamaica-1024x1024.jpg','Port Antonio is a city on Jamaica''s northeast coast and the capital of Portland Parish. It''s known as a gateway to nearby tropical jungles, mountains and waterfalls. In the John Crow Mountains, Reach Falls flows into a river pool. Near Hope Bay, Somerset Falls flows on the grounds of a former plantation. In the east, the Blue Lagoon is known for its blue waters, fed by the Caribbean Sea and underground springs','5');
+INSERT INTO main_app_city(name, img, description, country_id)
+    VALUES('No City Found','No image found','N/A','6');
