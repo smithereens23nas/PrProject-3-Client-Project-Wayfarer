@@ -67,30 +67,30 @@ class CountryList(TemplateView):
         return context
 
 
-class CountryCreate(CreateView):
-    model = Country
-    fields = ['name', 'img', 'city', 'continent']
-    template_name = 'country_create.html'
-    def get_success_url(self):
-        return reverse('country_detail', kwargs={'pk': self.object.pk})
+# class CountryCreate(CreateView):
+#     model = Country
+#     fields = ['name', 'img', 'city', 'continent']
+#     template_name = 'country_create.html'
+#     def get_success_url(self):
+#         return reverse('country_detail', kwargs={'pk': self.object.pk})
 
 
-class CountryDetail(DetailView):
-    model = Country
-    template_name = 'country_detail.html'
+# class CountryDetail(DetailView):
+#     model = Country
+#     template_name = 'country_detail.html'
 
-class CountryUpdate(UpdateView):
-    model = Country
-    fields = ['name', 'img', 'city', 'continent']
-    template_name = 'country_update.html'
-    def get_success_url(self):
-        return reverse('country_detail', kwargs={'pk': self.object.pk})
+# class CountryUpdate(UpdateView):
+#     model = Country
+#     fields = ['name', 'img', 'city', 'continent']
+#     template_name = 'country_update.html'
+#     def get_success_url(self):
+#         return reverse('country_detail', kwargs={'pk': self.object.pk})
 
 
-class CountryDelete(DeleteView):
-    model = Country
-    template_name = 'country_delete_confirmation.html'
-    success_url = '/countries/'
+# class CountryDelete(DeleteView):
+#     model = Country
+#     template_name = 'country_delete_confirmation.html'
+#     success_url = '/countries/'
 
 
 class CityCreate(View):
