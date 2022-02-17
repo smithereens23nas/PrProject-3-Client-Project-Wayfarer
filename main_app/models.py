@@ -18,18 +18,17 @@ class City(models.Model):
 
 class Post(models.Model):
     title =models.CharField(max_length=100)
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
-    city =models.ForeignKey(City, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, default='1')
+    city =models.ForeignKey(City, on_delete=models.CASCADE,default='1')
     img = models.TextField(max_length=500, blank =True)
     body = models.TextField(max_length=300)
-    created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.title + ' | ' + str(self.author)
 
 class Profile(models.Model):
     title = models.CharField(max_length=50)
-    email = models.CharField(max_length=300, unique=True)
+    email = models.CharField(max_length=300, unique=True, default='email')
     favourite_city = models.CharField(max_length=50)
     profile_picture =models.TextField(max_length=500, default ='https://i.pinimg.com/736x/cb/45/72/cb4572f19ab7505d552206ed5dfb3739.jpg')
     

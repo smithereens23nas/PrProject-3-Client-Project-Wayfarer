@@ -73,7 +73,7 @@ class PostCreate(View):
         return redirect('profile_detail')
 
         
-class City2List(TemplateView):
+class CityList(TemplateView):
     template_name = 'city_list.html'
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -112,7 +112,7 @@ class City2List(TemplateView):
 #     template_name = 'country_delete_confirmation.html'
 #     success_url = '/countries/'
 
-class City2Create(View):
+class CityCreate(View):
     def post(self, request, pk):
         name = request.POST.get('name')
         img = request.POST.get('img')
