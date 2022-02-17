@@ -7,7 +7,7 @@ urlpatterns = [
     path('signup/', ProfileCreate.as_view(), name="signup"),
     path('edit/profile/', ProfileEdit.as_view(), name="profile_edit"),
     path('countries/', views.CountryList.as_view(), name='country_list'),
-    path('profile/', views.Profile.as_view(), name='update_profile'),
+    # path('profile/', views.Profile.as_view(), name='update_profile'),
     path('add_post/', AddPostView.as_view(), name='add_post'),
     
     # path('countries/new', views.CountryCreate.as_view(), name='country_create'),
