@@ -13,21 +13,21 @@
     </div>
   </div>
   <!--  This anchor tag will redirect back to artist list without a query param -->
-  <a class="button is-dark" href="{% url 'country_list' %}">Clear Search</a>
-  <a class="button is-dark" href="{% url 'country_create' %}">Add Country</a>
+  <a class="button is-dark" href="{% url 'city_list' %}">Clear Search</a>
+  <a class="button is-dark" href="{% url 'city_create' %}">Add city</a>
 </form>
 <div class="gallery">
-  {% for country in countries %}
+  {% for city in cities %}
   <!-- Here we are changing the href of the a tag to use the url DTL -->
-    <a href="{% url 'country_detail' country.pk %}">
+    <a href="{% url 'city_detail' city.pk %}">
       <div class="card">
         <div class="card-image">
           <figure class="image is-square">
-            <img src="{{country.img}}" alt="{{country.name}}" />
+            <img src="{{city.img}}" alt="{{city.name}}" />
           </figure>
         </div>
         <div class="card-header">
-          <p class="card-header-title">{{country.name}}</p>
+          <p class="card-header-title">{{city.name}}</p>
         </div>
       </div>
     </a>

@@ -5,7 +5,7 @@ from django.views.generic.base import View, TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView, ListView, CreateView
 from django.urls import reverse, reverse_lazy
-from .models import Country, City, Profile, Post
+from .models import City, Profile, Post
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 # from .forms import SignUpForm
@@ -63,26 +63,27 @@ class ProfileDetail(DetailView):
     
 class PostCreate(View):
     def post(self, request, pk):
-        current_city = request.POST.get('current_city')
         title = request.POST.get('title')
+        author = request.POST.get('author')
+        city = request.POST.get('city')
         img = request.POST.get('img')
         body = request.POST.get('body')
-        profile = Profile.objects.get(pk=pk)
-        Post.objects.create(current_city=current_city, title=title, img=img, body=body, profile=profile)
+        # profile = Profile.objects.get(pk=pk)
+        Post.objects.create(city=city, title=title, img=img, body=body)
         return redirect('profile_detail')
 
         
-class CountryList(TemplateView):
-    template_name = 'country_list.html'
+class City2List(TemplateView):
+    template_name = 'city_list.html'
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         name = self.request.GET.get('name')
         if name != None:
-            context['countries'] = Country.objects.filter(name__icontains=name)
+            context['cities'] = City.objects.filter(name__icontains=name)
             context['header'] = f"Searching For {name}"
         else:
-            context['countries'] = Country.objects.all()
-            context['header'] = "All The Countries"
+            context['countries'] = City.objects.all()
+            context['header'] = "All The Cities"
         return context
 
 
@@ -111,11 +112,11 @@ class CountryList(TemplateView):
 #     template_name = 'country_delete_confirmation.html'
 #     success_url = '/countries/'
 
-class CityCreate(View):
+class City2Create(View):
     def post(self, request, pk):
         name = request.POST.get('name')
         img = request.POST.get('img')
         description = request.POST.get('description')
-        country = Country.objects.get(pk=pk)
-        City.objects.create(name=name, img=img, description=description, country=country)
-        return redirect('country_detail', pk=pk)
+        city = City.objects.get(pk=pk)
+        City.objects.create(name=name, img=img, description=description)
+        return redirect('city_detail', pk=pk)

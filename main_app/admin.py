@@ -1,23 +1,20 @@
+from dataclasses import fields
 from django.contrib import admin
 from . import models
 
 # Register your models here.
 @admin.register(models.City)
 class CityAdmin(admin.ModelAdmin):
-    list_display = ['name', 'img', 'description','country']
+    list_display = ['name','description']
     ordering = ['name'] 
+
 @admin.register(models.Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = [ 'current_city', 'title', 'img','description']
+    list_display = ['title', 'author','city','img','body']
 
 @admin.register(models.Profile)
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ['user_name','current_city','profile_picture']
-
-
-# @admin.register(models.Country)
-# class CountryAdmin(admin.ModelAdmin):
-#     list_display = ['name', 'img', 'continent']
-#     ordering = ['name']
+    list_display = ['title','email','favourite_city','profile_picture']
     
-# admin.site.register(models.Country)
+
+
